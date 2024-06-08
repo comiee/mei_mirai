@@ -2,7 +2,7 @@ package com.comiee.test.testcase;
 
 
 import com.comiee.mei.communication.Client;
-import com.comiee.mei.demo.DebugMsg;
+import com.comiee.mei.message.DebugMsg;
 import com.comiee.mei.demo.DemoClient;
 import com.comiee.test.comm.TestCase;
 
@@ -13,9 +13,7 @@ public class Test extends TestCase {
         Thread[] ts = new Thread[30];
         for (int i = 0; i < ts.length; i++) {
             int fi = i;
-            ts[i] = new Thread(() -> {
-                client.send(new DebugMsg().build("" + fi));
-            });
+            ts[i] = new Thread(() -> client.send(new DebugMsg().build("" + fi)));
         }
         for (Thread t : ts) {
             t.start();

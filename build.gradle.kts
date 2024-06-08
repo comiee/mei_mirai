@@ -1,11 +1,11 @@
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 plugins {
     java
     kotlin("jvm") version "1.8.0"
 }
 
-group = "org.example"
+group = "com.comiee.mei"
 version = "0.1.0"
 
 repositories {
@@ -15,6 +15,18 @@ repositories {
     maven { url = uri("https://maven.aliyun.com/repositories/central") }
     google()
     mavenCentral()
+}
+
+@Suppress("UnstableApiUsage")
+java {
+    // 配置Java编译选项
+    sourceCompatibility = JavaVersion.VERSION_20
+    targetCompatibility = JavaVersion.VERSION_20
+}
+
+tasks.withType<JavaCompile> {
+    options.compilerArgs.add("--enable-preview")
+    options.compilerArgs.add("-Xlint:preview")
 }
 
 tasks.withType(KotlinJvmCompile::class.java) {

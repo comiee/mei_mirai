@@ -1,4 +1,4 @@
-package com.comiee.mei.demo;
+package com.comiee.mei.message;
 
 import com.comiee.mei.communication.Message;
 import com.google.gson.JsonElement;
