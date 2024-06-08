@@ -1,1 +1,1 @@
-rootProject.name = "mirai-hello-world"
+rootProject.name = "mei"

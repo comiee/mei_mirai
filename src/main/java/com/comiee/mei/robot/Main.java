@@ -1,4 +1,4 @@
-package org.example.mirai;
+package com.comiee.mei.robot;
 
 import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.BotFactory;
@@ -8,7 +8,7 @@ import net.mamoe.mirai.message.data.MessageChainBuilder;
 import net.mamoe.mirai.message.data.QuoteReply;
 import net.mamoe.mirai.utils.BotConfiguration;
 
-public class JavaMain {
+public class Main {
     public static void main(String[] args) {
         Bot bot = BotFactory.INSTANCE.newBot(3031315187L, BotAuthorization.byQRCode(), new BotConfiguration() {{
             fileBasedDeviceInfo(); // 使用 device.json 存储设备信息
@@ -16,7 +16,7 @@ public class JavaMain {
         }});
         bot.login();
 
-        JavaMain.afterLogin(bot);
+        Main.afterLogin(bot);
     }
 
     public static void afterLogin(Bot bot) {
