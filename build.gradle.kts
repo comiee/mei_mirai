@@ -27,6 +27,7 @@ java {
 tasks.withType<JavaCompile> {
     options.compilerArgs.add("--enable-preview")
     options.compilerArgs.add("-Xlint:preview")
+    options.encoding = "utf-8"
 }
 
 tasks.withType(KotlinJvmCompile::class.java) {
@@ -46,3 +47,9 @@ dependencies {
     testImplementation("org.junit.platform:junit-platform-suite-api:1.7.2")
     testRuntimeOnly("org.junit.platform:junit-platform-suite-engine:1.7.2")
 }
+
+// 打包jar步骤：
+//   1.文件->项目结构->工件->+->jar->来自具有依赖项的模块  META-INF/MANIFEST.MF的目录选src下
+//   2.构建->构建工件
+//   3.打开jar包，将META-INF下的.SF文件全部删掉
+//   4.运行的时候记得用java -jar

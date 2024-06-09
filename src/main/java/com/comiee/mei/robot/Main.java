@@ -15,7 +15,7 @@ import net.mamoe.mirai.utils.BotConfiguration;
 public class Main {
     public static void main(String[] args) throws Exception {
         Bot bot = BotFactory.INSTANCE.newBot(
-                new Config().getInt("qq"),
+                new Config().getLong("qq"),
                 BotAuthorization.byQRCode(),
                 new BotConfiguration() {{
                     fileBasedDeviceInfo(); // 使用 device.json 存储设备信息
