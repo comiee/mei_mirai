@@ -1,12 +1,14 @@
-package com.comiee.test.testcase;
+package com.comiee.mei.testcase;
 
-import com.comiee.mei.communal.JsonTool;
-import com.comiee.test.comm.TestCase;
+import com.comiee.mei.communal.json.JsonTool;
 import com.google.gson.JsonObject;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
-public class TestJson extends TestCase {
+public class JsonTest {
     private final JsonObject jsonObject = JsonTool.createObject(
             "cmd", "test",
             "value", JsonTool.createObject(
@@ -38,19 +40,13 @@ public class TestJson extends TestCase {
                     "\"string\":\"{,}\"}" +
                     "]}}";
 
-    private void testJsonDump() {
-        assertEqual(string, JsonTool.dump(jsonObject));
+    @Test
+    void testJsonDump() {
+        assertEquals(string, JsonTool.dump(jsonObject));
     }
 
-    private void testJsonParse() {
-        assertEqual(jsonObject, JsonTool.parse(string));
-    }
-
-    public static void main(String[] args) {
-        var testCase = new TestJson();
-        testCase.testJsonDump();
-        testCase.testJsonParse();
-
-        System.out.println("测试通过！");
+    @Test
+    void testJsonParse() {
+        assertEquals(jsonObject, JsonTool.parse(string));
     }
 }

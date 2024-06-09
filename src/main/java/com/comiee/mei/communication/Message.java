@@ -1,6 +1,6 @@
 package com.comiee.mei.communication;
 
-import com.comiee.mei.communal.JsonTool;
+import com.comiee.mei.communal.json.JsonTool;
 import com.comiee.mei.communal.exception.MessageException;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

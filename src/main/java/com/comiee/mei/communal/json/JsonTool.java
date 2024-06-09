@@ -1,4 +1,4 @@
-package com.comiee.mei.communal;
+package com.comiee.mei.communal.json;
 
 import com.google.gson.*;
 

@@ -40,4 +40,9 @@ dependencies {
     runtimeOnly("net.mamoe:mirai-core:${properties["version.mirai"]}")
 
     implementation("com.google.code.gson:gson:2.10.1")
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+    testImplementation("org.junit.platform:junit-platform-suite-api:1.7.2")
+    testRuntimeOnly("org.junit.platform:junit-platform-suite-engine:1.7.2")
 }

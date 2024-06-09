@@ -14,10 +14,13 @@ import net.mamoe.mirai.utils.BotConfiguration;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Bot bot = BotFactory.INSTANCE.newBot(3031315187L, BotAuthorization.byQRCode(), new BotConfiguration() {{
-            fileBasedDeviceInfo(); // 使用 device.json 存储设备信息
-            setProtocol(MiraiProtocol.ANDROID_WATCH); // 切换协议
-        }});
+        Bot bot = BotFactory.INSTANCE.newBot(
+                new Config().getInt("qq"),
+                BotAuthorization.byQRCode(),
+                new BotConfiguration() {{
+                    fileBasedDeviceInfo(); // 使用 device.json 存储设备信息
+                    setProtocol(MiraiProtocol.ANDROID_WATCH); // 切换协议
+                }});
         bot.login();
 
         afterLogin(bot);

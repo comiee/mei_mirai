@@ -1,6 +1,6 @@
 package com.comiee.mei.demo;
 
-import com.comiee.mei.communal.JsonTool;
+import com.comiee.mei.communal.json.JsonTool;
 import com.comiee.mei.communication.AsyncClient;
 import com.google.gson.JsonObject;
 

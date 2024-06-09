@@ -1,19 +1,26 @@
-package com.comiee.test.testcase;
+package com.comiee.mei.testcase;
 
 
 import com.comiee.mei.communication.Client;
 import com.comiee.mei.message.DebugMsg;
 import com.comiee.mei.demo.DemoClient;
-import com.comiee.test.comm.TestCase;
+import com.google.gson.JsonElement;
+import org.junit.jupiter.api.Test;
 
-public class Test extends TestCase {
-    private void testMultiMsg() throws Exception {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class MessageTest {
+    @Test
+    public void testMultiMsg() throws Exception {
         Client client = new DemoClient();
         client.send(new DebugMsg().build("test"));
         Thread[] ts = new Thread[30];
         for (int i = 0; i < ts.length; i++) {
             int fi = i;
-            ts[i] = new Thread(() -> client.send(new DebugMsg().build("" + fi)));
+            ts[i] = new Thread(() -> {
+                JsonElement ret = client.send(new DebugMsg().build("" + fi));
+                assertEquals("" + fi, ret.getAsString());
+            });
         }
         for (Thread t : ts) {
             t.start();
@@ -21,10 +28,5 @@ public class Test extends TestCase {
         for (Thread t : ts) {
             t.join();
         }
-    }
-
-    public static void main(String[] args) throws Exception {
-        var testCase = new Test();
-        testCase.testMultiMsg();
     }
 }
